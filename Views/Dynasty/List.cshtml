@@ -1,0 +1,29 @@
+@using System.Collections.Generic
+@using Genealogia.Data
+
+@model IEnumerable<Dynasty>;
+
+<section class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">List of all dynasties saved</h2>
+        </div>
+    </header>
+    <main class="row list-group">
+        @foreach(var dynasty in Model)
+        {
+            <div class="list-group-item">
+                <span class="pull-right">
+                    <a class="btn btn-primary btn-sm"  asp-controller="Dynasty" asp-action="Update" asp-route-id="@dynasty.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm"   asp-controller="Dynasty" asp-action="Delete" asp-route-id="@dynasty.Id">
+                        Supprimer
+                    </a>
+                </span>
+                @dynasty.Name
+            </div>
+        }
+    </main>
+    <footer class="row"></footer>
+</section>

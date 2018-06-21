@@ -6,11 +6,11 @@ using Genealogia.Contracts.Services;
 
 namespace Genealogia.Controllers
 {
-    public class PlaceController : Controller
+    public class DynastyController : Controller
     {
-        private PlaceServiceContract Service { get; set; }
+        private DynastyServiceContract Service { get; set; }
 
-        public PlaceController (PlaceServiceContract service)
+        public DynastyController (DynastyServiceContract service)
         {
             this.Service = service;
         }
@@ -24,50 +24,50 @@ namespace Genealogia.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View(new Place());
+            return View(new Dynasty());
         }
 
         [HttpPost]
-        public IActionResult Save(Place place)
+        public IActionResult Save(Dynasty dynasty)
         {
-            this.Service.Create(place);
+            this.Service.Create(dynasty);
             return RedirectToAction("List");
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {
-            Place place = this.Service.FindById(id);
-            return View(place);
+            Dynasty dynasty = this.Service.FindById(id);
+            return View(dynasty);
         }
 
         [HttpPost]
-        public IActionResult Patch(Place place)
+        public IActionResult Patch(Dynasty dynasty)
         {
-            this.Service.Update(place);
+            this.Service.Update(dynasty);
             return RedirectToAction("List");
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            Place place = this.Service.FindById(id);
-            return View(place);
+            Dynasty dynasty = this.Service.FindById(id);
+            return View(dynasty);
         }
 
         [HttpPost]
         public IActionResult ConfirmDeletion(int id)
         {
-            Place place = this.Service.FindById(id);
-            this.Service.Delete(place);
+            Dynasty dynasty = this.Service.FindById(id);
+            this.Service.Delete(dynasty);
             return RedirectToAction("List");
         }
 
         [HttpGet]
         public IActionResult List()
         {
-            IEnumerable<Place> placeList = this.Service.all();
-            return View(placeList);
+            IEnumerable<Dynasty> dynastyList = this.Service.all();
+            return View(dynastyList);
         }
     }
 }

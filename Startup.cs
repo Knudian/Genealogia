@@ -45,6 +45,7 @@ namespace Genealogia
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<AreaServiceContract, AreaService>();
             services.AddTransient<PlaceServiceContract, PlaceService>();
+            services.AddTransient<DynastyServiceContract, DynastyService>();
 
             services.AddMvc();
         }
