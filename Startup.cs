@@ -10,11 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.EntityFrameworkCore.Extensions;
 using Microsoft.EntityFrameworkCore.Proxies;
-using StephaneBern.Data;
-using StephaneBern.Models;
-using StephaneBern.Services;
+using Genealogia.Data;
+using Genealogia.Models;
+using Genealogia.Services;
 
-namespace StephaneBern
+namespace Genealogia
 {
     public class Startup
     {

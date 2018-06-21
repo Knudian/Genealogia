@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace StephaneBern.Data.Migrations
+namespace Genealogia.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

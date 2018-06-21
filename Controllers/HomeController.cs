@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using StephaneBern.Models;
+using Genealogia.Models;
 
-namespace StephaneBern.Controllers
+namespace Genealogia.Controllers
 {
     public class HomeController : Controller
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StephaneBern.Models.AccountViewModels
+namespace Genealogia.Models.AccountViewModels
 {
     public class ExternalLoginViewModel
     {

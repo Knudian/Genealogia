@@ -1,4 +1,4 @@
-namespace StephaneBern.Data
+namespace Genealogia.Data
 {
     public class Place
     {

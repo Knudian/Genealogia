@@ -18,7 +18,7 @@ CREATE TABLE `__EFMigrationsHistory` (
 5. Run the app
 ```sh
 cd dotnetcore
-dotnet run
+dotnet watch run
 ```
 
-6. Open your browser to [play with it](http://locahost:5000)
+6. Open your browser to [play with it](http://localhost:5000)

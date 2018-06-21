@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using StephaneBern.Data;
+using Genealogia.Data;
 
-namespace StephaneBern.Contracts.Services
+namespace Genealogia.Contracts.Services
 {
     public interface PlaceServiceContract
     {

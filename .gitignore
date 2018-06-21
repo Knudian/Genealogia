@@ -1,5 +1,5 @@
 *.db
 obj/
 bin/
-.vscode/
-.idea/
+/.vscode/
+/.idea/

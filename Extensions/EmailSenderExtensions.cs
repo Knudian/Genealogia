@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using StephaneBern.Services;
+using Genealogia.Services;
 
-namespace StephaneBern.Services
+namespace Genealogia.Services
 {
     public static class EmailSenderExtensions
     {

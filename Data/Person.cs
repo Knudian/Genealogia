@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace StephaneBern.Data
+namespace Genealogia.Data
 {
     public class Person
     {

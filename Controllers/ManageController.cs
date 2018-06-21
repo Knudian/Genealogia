@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using StephaneBern.Models;
-using StephaneBern.Models.ManageViewModels;
-using StephaneBern.Services;
+using Genealogia.Models;
+using Genealogia.Models.ManageViewModels;
+using Genealogia.Services;
 
-namespace StephaneBern.Controllers
+namespace Genealogia.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -522,7 +522,7 @@ namespace StephaneBern.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("StephaneBern"),
+                _urlEncoder.Encode("Genealogia"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

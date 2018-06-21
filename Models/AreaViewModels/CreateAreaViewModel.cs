@@ -1,4 +1,4 @@
-namespace StephaneBern.Models.AreaViewModels
+namespace Genealogia.Models.AreaViewModels
 {
     public class CreateAreaViewModel
     {

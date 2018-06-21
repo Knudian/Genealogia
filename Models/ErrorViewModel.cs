@@ -1,6 +1,6 @@
 using System;
 
-namespace StephaneBern.Models
+namespace Genealogia.Models
 {
     public class ErrorViewModel
     {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace StephaneBern.Models.ManageViewModels
+namespace Genealogia.Models.ManageViewModels
 {
     public class ExternalLoginsViewModel
     {

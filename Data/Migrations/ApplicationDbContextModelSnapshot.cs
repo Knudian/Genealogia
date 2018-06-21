@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.Data.EntityFrameworkCore.Storage.Internal;
-using StephaneBern.Data;
+using Genealogia.Data;
 using System;
 
-namespace StephaneBern.Data.Migrations
+namespace Genealogia.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -125,7 +125,7 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Area", b =>
+            modelBuilder.Entity("Genealogia.Data.Area", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -137,7 +137,7 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("Areas");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Dynasty", b =>
+            modelBuilder.Entity("Genealogia.Data.Dynasty", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -149,7 +149,7 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("Dynasties");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Person", b =>
+            modelBuilder.Entity("Genealogia.Data.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -179,7 +179,7 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Place", b =>
+            modelBuilder.Entity("Genealogia.Data.Place", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -193,7 +193,7 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("Places");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Reign", b =>
+            modelBuilder.Entity("Genealogia.Data.Reign", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -215,7 +215,7 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("Reigns");
                 });
 
-            modelBuilder.Entity("StephaneBern.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Genealogia.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -275,7 +275,7 @@ namespace StephaneBern.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("StephaneBern.Models.ApplicationUser")
+                    b.HasOne("Genealogia.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -283,7 +283,7 @@ namespace StephaneBern.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("StephaneBern.Models.ApplicationUser")
+                    b.HasOne("Genealogia.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -296,7 +296,7 @@ namespace StephaneBern.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("StephaneBern.Models.ApplicationUser")
+                    b.HasOne("Genealogia.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -304,34 +304,34 @@ namespace StephaneBern.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("StephaneBern.Models.ApplicationUser")
+                    b.HasOne("Genealogia.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Person", b =>
+            modelBuilder.Entity("Genealogia.Data.Person", b =>
                 {
-                    b.HasOne("StephaneBern.Data.Dynasty", "Dynasty")
+                    b.HasOne("Genealogia.Data.Dynasty", "Dynasty")
                         .WithMany()
                         .HasForeignKey("DynastyId");
 
-                    b.HasOne("StephaneBern.Data.Place", "PlaceOfBirth")
+                    b.HasOne("Genealogia.Data.Place", "PlaceOfBirth")
                         .WithMany()
                         .HasForeignKey("PlaceOfBirthId");
 
-                    b.HasOne("StephaneBern.Data.Place", "PlaceOfDeath")
+                    b.HasOne("Genealogia.Data.Place", "PlaceOfDeath")
                         .WithMany()
                         .HasForeignKey("PlaceOfDeathId");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Reign", b =>
+            modelBuilder.Entity("Genealogia.Data.Reign", b =>
                 {
-                    b.HasOne("StephaneBern.Data.Area", "Area")
+                    b.HasOne("Genealogia.Data.Area", "Area")
                         .WithMany()
                         .HasForeignKey("AreaId");
 
-                    b.HasOne("StephaneBern.Data.Person")
+                    b.HasOne("Genealogia.Data.Person")
                         .WithMany("Reigns")
                         .HasForeignKey("PersonId");
                 });

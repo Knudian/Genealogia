@@ -1,6 +1,6 @@
 using System;
 
-namespace StephaneBern.Data
+namespace Genealogia.Data
 {
     public class Reign
     {

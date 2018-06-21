@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace StephaneBern.Data.Migrations
+namespace Genealogia.Data.Migrations
 {
     public partial class models : Migration
     {

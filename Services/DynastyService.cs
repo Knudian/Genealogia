@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using StephaneBern.Data;
-using StephaneBern.Contracts.Services;
+using Genealogia.Data;
+using Genealogia.Contracts.Services;
 
-namespace StephaneBern.Services
+namespace Genealogia.Services
 {
     public class DynastyService : DynastyServiceContract
     {

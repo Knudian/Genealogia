@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using StephaneBern.Models;
-using StephaneBern.Models.AccountViewModels;
-using StephaneBern.Services;
+using Genealogia.Models;
+using Genealogia.Models.AccountViewModels;
+using Genealogia.Services;
 
-namespace StephaneBern.Controllers
+namespace Genealogia.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

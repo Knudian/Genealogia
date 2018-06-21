@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using StephaneBern.Models;
+using Genealogia.Models;
 
-namespace StephaneBern.Data
+namespace Genealogia.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
