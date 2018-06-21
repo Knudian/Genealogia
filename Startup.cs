@@ -46,6 +46,7 @@ namespace Genealogia
             services.AddTransient<AreaServiceContract, AreaService>();
             services.AddTransient<PlaceServiceContract, PlaceService>();
             services.AddTransient<DynastyServiceContract, DynastyService>();
+            services.AddTransient<PersonServiceContract, PersonService>();
 
             services.AddMvc();
         }
