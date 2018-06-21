@@ -9,10 +9,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.EntityFrameworkCore.Extensions;
-using Microsoft.EntityFrameworkCore.Proxies;
+//using Microsoft.EntityFrameworkCore.Proxies;
 using Genealogia.Data;
 using Genealogia.Models;
 using Genealogia.Services;
+using Genealogia.Contracts.Services;
 
 namespace Genealogia
 {
@@ -32,7 +33,7 @@ namespace Genealogia
                 .AddDbContext<ApplicationDbContext>(options =>
                     options
                         .UseMySQL(Configuration.GetConnectionString("DefaultConnection"))
-                        .UseLazyLoadingProxies()
+                        //.UseLazyLoadingProxies()
                     );
 
             services
@@ -40,8 +41,9 @@ namespace Genealogia
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
+            // Add application services (Dependency injections;)).
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<AreaServiceContract, AreaService>();
 
             services.AddMvc();
         }
@@ -51,13 +53,14 @@ namespace Genealogia
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
             }
+            
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
 
             app.UseStaticFiles();
 

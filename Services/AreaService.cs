@@ -15,14 +15,14 @@ namespace Genealogia.Services
             this.Context = context;
         }
 
-        public Area FindById(int id)
+        public Area FindById(int id)    
         {
             return Context.Areas.Find(id);
         }
 
-        public List<Area> all()
+        public IEnumerable<Area> all()
         {
-            return Context.Areas.ToList();
+            return Context.Areas;
         }
 
         public Area Create(Area area)
@@ -35,12 +35,14 @@ namespace Genealogia.Services
         public Area Update(Area area)
         {
             Context.Update(area);
+            Context.SaveChanges();
             return area;
         }
 
         public void Delete(Area area)
         {
             Context.Areas.Remove(area);
+            Context.SaveChanges();
         }
     }
 }

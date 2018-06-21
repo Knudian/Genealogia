@@ -13,7 +13,7 @@ namespace Genealogia.Data
 
         public DateTime? DateOfDeath { get; set; }
 
-        public Char gender { get; set; }
+        public String gender { get; set; }
 
         public Place PlaceOfBirth { get; set; }
 

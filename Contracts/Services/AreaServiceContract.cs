@@ -7,7 +7,7 @@ namespace Genealogia.Contracts.Services
     {
         Area FindById(int id);
 
-        List<Area> all();
+        IEnumerable<Area> all();
 
         Area Create(Area area);
 

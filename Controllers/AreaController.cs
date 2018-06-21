@@ -1,34 +1,75 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Genealogia.Models;
+using Genealogia.Data;
+using Genealogia.Contracts.Services;
+
 
 namespace Genealogia.Controllers
 {
     public class AreaController : Controller
     {
+        private AreaServiceContract Service { get; set; }
+
+        public AreaController (AreaServiceContract service)
+        {
+            this.Service = service;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
             return RedirectToAction("List");
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View(new Area());
         }
 
-        public IActionResult Update()
+        [HttpPost]
+        public IActionResult Save(Area area)
         {
-            return View();
+            this.Service.Create(area);
+            return RedirectToAction("List");
         }
 
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult Update(int id)
         {
-            return View();
+            Area area = this.Service.FindById(id);
+            return View(area);
         }
 
+        [HttpPost]
+        public IActionResult Patch(Area area)
+        {
+            this.Service.Update(area);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            // lololol
+            Area area = this.Service.FindById(id);
+            return View(area);
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmDeletion(int id)
+        {
+            Area area = this.Service.FindById(id);
+            this.Service.Delete(area);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
         public IActionResult List()
         {
-            return View();
+            IEnumerable<Area> areaList = this.Service.all();
+            return View(areaList);
         }
     }
 }

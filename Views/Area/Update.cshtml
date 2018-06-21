@@ -1,0 +1,43 @@
+@using Genealogia.Data
+
+@model Area;
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h5>Updating area</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form asp-area="" asp-controller="Area"
+                    asp-action="Patch" method="POST"
+                    asp-route-id="@Model.Id"
+                    id="patchForm" class="form form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Area Id</label>
+                            <div class="col-xs-9">
+                                <p class="form-control-static">
+                                    @Model.Id
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Area Name</label>
+                            <div class="col-xs-9">
+                                <input class="form-control" placeholder="Nom" asp-for="Name" id="inputName" type="text" value="@Model.Name"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <button type="submit" class="btn btn-sm btn-info">Validate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
