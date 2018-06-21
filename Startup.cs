@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MySql.Data.EntityFrameworkCore.Extensions;
+using Microsoft.EntityFrameworkCore.Proxies;
 using StephaneBern.Data;
 using StephaneBern.Models;
 using StephaneBern.Services;
@@ -26,10 +28,15 @@ namespace StephaneBern
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services
+                .AddDbContext<ApplicationDbContext>(options =>
+                    options
+                        .UseMySQL(Configuration.GetConnectionString("DefaultConnection"))
+                        .UseLazyLoadingProxies()
+                    );
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services
+                .AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 

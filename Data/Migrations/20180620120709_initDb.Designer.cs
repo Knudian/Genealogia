@@ -3,16 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using MySql.Data.EntityFrameworkCore.Storage.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using StephaneBern.Data;
 using System;
 
 namespace StephaneBern.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180620120709_initDb")]
+    partial class initDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,96 +127,6 @@ namespace StephaneBern.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("StephaneBern.Data.Area", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Areas");
-                });
-
-            modelBuilder.Entity("StephaneBern.Data.Dynasty", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Dynasties");
-                });
-
-            modelBuilder.Entity("StephaneBern.Data.Person", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime?>("DateOfBirth");
-
-                    b.Property<DateTime?>("DateOfDeath");
-
-                    b.Property<int?>("DynastyId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int?>("PlaceOfBirthId");
-
-                    b.Property<int?>("PlaceOfDeathId");
-
-                    b.Property<char>("gender");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DynastyId");
-
-                    b.HasIndex("PlaceOfBirthId");
-
-                    b.HasIndex("PlaceOfDeathId");
-
-                    b.ToTable("Persons");
-                });
-
-            modelBuilder.Entity("StephaneBern.Data.Place", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Country");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Places");
-                });
-
-            modelBuilder.Entity("StephaneBern.Data.Reign", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("AreaId");
-
-                    b.Property<DateTime>("EndDate");
-
-                    b.Property<int?>("PersonId");
-
-                    b.Property<DateTime>("StartDate");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AreaId");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("Reigns");
-                });
-
             modelBuilder.Entity("StephaneBern.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -308,32 +220,6 @@ namespace StephaneBern.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("StephaneBern.Data.Person", b =>
-                {
-                    b.HasOne("StephaneBern.Data.Dynasty", "Dynasty")
-                        .WithMany()
-                        .HasForeignKey("DynastyId");
-
-                    b.HasOne("StephaneBern.Data.Place", "PlaceOfBirth")
-                        .WithMany()
-                        .HasForeignKey("PlaceOfBirthId");
-
-                    b.HasOne("StephaneBern.Data.Place", "PlaceOfDeath")
-                        .WithMany()
-                        .HasForeignKey("PlaceOfDeathId");
-                });
-
-            modelBuilder.Entity("StephaneBern.Data.Reign", b =>
-                {
-                    b.HasOne("StephaneBern.Data.Area", "Area")
-                        .WithMany()
-                        .HasForeignKey("AreaId");
-
-                    b.HasOne("StephaneBern.Data.Person")
-                        .WithMany("Reigns")
-                        .HasForeignKey("PersonId");
                 });
 #pragma warning restore 612, 618
         }
