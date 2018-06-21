@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using Genealogia.Data;
 using Genealogia.Contracts.Services;
 
-
 namespace Genealogia.Controllers
 {
-    public class AreaController : Controller
+    public class PlaceController : Controller
     {
-        private AreaServiceContract Service { get; set; }
+        private PlaceServiceContract Service { get; set; }
 
-        public AreaController (AreaServiceContract service)
+        public PlaceController (PlaceServiceContract service)
         {
             this.Service = service;
         }
@@ -25,50 +24,51 @@ namespace Genealogia.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View(new Area());
+            return View(new Place());
         }
 
         [HttpPost]
-        public IActionResult Save(Area area)
+        public IActionResult Save(Place place)
         {
-            this.Service.Create(area);
+            this.Service.Create(place);
             return RedirectToAction("List");
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {
-            Area area = this.Service.FindById(id);
-            return View(area);
+            Place place = this.Service.FindById(id);
+            return View(place);
         }
 
         [HttpPost]
-        public IActionResult Patch(Area area)
+        public IActionResult Patch(Place place)
         {
-            this.Service.Update(area);
+            this.Service.Update(place);
             return RedirectToAction("List");
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            Area area = this.Service.FindById(id);
-            return View(area);
+            // lololol
+            Place place = this.Service.FindById(id);
+            return View(place);
         }
 
         [HttpPost]
         public IActionResult ConfirmDeletion(int id)
         {
-            Area area = this.Service.FindById(id);
-            this.Service.Delete(area);
+            Place place = this.Service.FindById(id);
+            this.Service.Delete(place);
             return RedirectToAction("List");
         }
 
         [HttpGet]
         public IActionResult List()
         {
-            IEnumerable<Area> areaList = this.Service.all();
-            return View(areaList);
+            IEnumerable<Place> placeList = this.Service.all();
+            return View(placeList);
         }
     }
 }

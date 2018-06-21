@@ -12,8 +12,8 @@ namespace Genealogia.Data
 
         public Place(string name, string country)
         {
-            this.Country = country;
             this.Name = name;
+            this.Country = country;
         }
     }
 }

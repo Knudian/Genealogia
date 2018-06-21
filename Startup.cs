@@ -44,6 +44,7 @@ namespace Genealogia
             // Add application services (Dependency injections;)).
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<AreaServiceContract, AreaService>();
+            services.AddTransient<PlaceServiceContract, PlaceService>();
 
             services.AddMvc();
         }
