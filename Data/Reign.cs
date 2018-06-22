@@ -8,6 +8,8 @@ namespace Genealogia.Data
 
         public Person Person { get; set; }
 
+        public Rank Rank { get; set; }
+
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
@@ -16,9 +18,10 @@ namespace Genealogia.Data
 
         public Reign() {}
 
-        public Reign(Person person, Area area, DateTime start, DateTime end)
+        public Reign(Person person, Rank rank, Area area, DateTime start, DateTime end)
         {
             this.Person = person;
+            this.Rank = rank;
             this.Area = area;
             this.StartDate = start;
             this.EndDate = end;

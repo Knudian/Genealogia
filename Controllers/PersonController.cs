@@ -71,5 +71,12 @@ namespace Genealogia.Controllers
             IEnumerable<Person> personList = this.Service.all();
             return View(personList);
         }
+
+        [HttpGet]
+        public IActionResult Show(int id)
+        {
+            Person person = this.Service.FindById(id);
+            return View(person);
+        }
     }
 }

@@ -18,6 +18,29 @@ CREATE TABLE `__EFMigrationsHistory` (
 5. Run the app
 ```sh
 cd dotnetcore
+dotnet ef database update
+```
+
+In your MySQL system, for the app database :
+```sql
+INSERT INTO `Ranks` (`Feminine`, `Name`) VALUES
+('Empress', 'Emperor'),
+('Queen', 'King'),
+('Archduchess', 'Archduke'),
+('Grand Princess', 'Grand Prince'),
+('Princess', 'Prince'),
+('Duchess', 'Duke'),
+('Marchioness', 'Marquess'),
+('Countess', 'Count'),
+('Viscountess', 'Viscount'),
+('Baroness', 'Baron'),
+('Baronetess', 'Baronet'),
+('Dame', 'Knight'),
+('Maid', 'Gentleman');
+```
+
+Then run the app in dev mode :
+```sh
 dotnet watch run
 ```
 

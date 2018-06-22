@@ -6,7 +6,10 @@
 <section class="container-fluid">
     <header class="row">
         <div class="col-xs-12">
-            <h2 class="page-header">List of all dynasties saved</h2>
+            <h2 class="page-header">
+                List of all dynasties saved
+                <a class="btn btn-sm btn-success" asp-controller="Dynasty" asp-action="Create" title="Create a new one">+</a>
+            </h2>
         </div>
     </header>
     <main class="row list-group">
@@ -18,7 +21,7 @@
                         Edit
                     </a>
                     <a class="btn btn-danger btn-sm"   asp-controller="Dynasty" asp-action="Delete" asp-route-id="@dynasty.Id">
-                        Supprimer
+                        Delete
                     </a>
                 </span>
                 @dynasty.Name

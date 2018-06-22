@@ -15,6 +15,7 @@ namespace Genealogia.Data
         public DbSet<Person> Persons { get; set; }
         public DbSet<Place> Places { get; set; }
         public DbSet<Reign> Reigns { get; set; }
+        public DbSet<Rank> Ranks { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
