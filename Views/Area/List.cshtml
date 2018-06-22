@@ -1,0 +1,32 @@
+@using System.Collections.Generic
+@using Genealogia.Data
+
+@model IEnumerable<Area>;
+
+<section class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                List of all areas saved
+                <a class="btn btn-sm btn-success" asp-controller="Area" asp-action="Create" title="Create a new one">+</a>
+            </h2>
+        </div>
+    </header>
+    <main class="row list-group">
+        @foreach(var area in Model)
+        {
+            <div class="list-group-item col-xs-3">
+                <span class="pull-right">
+                    <a class="btn btn-primary btn-sm"  asp-controller="Area" asp-action="Update" asp-route-id="@area.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm"   asp-controller="Area" asp-action="Delete" asp-route-id="@area.Id">
+                        Delete
+                    </a>
+                </span>
+                @area.Name
+            </div>
+        }
+    </main>
+    <footer class="row"></footer>
+</section>

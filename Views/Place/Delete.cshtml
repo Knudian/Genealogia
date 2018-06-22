@@ -1,0 +1,53 @@
+@using Genealogia.Data
+
+@model Place;
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h5>Confirm deletion</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form asp-area="" asp-controller="Place"
+                    asp-action="ConfirmDeletion" method="POST"
+                    asp-route-id="@Model.Id"
+                    id="deletionForm" class="form form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Place Id</label>
+                            <div class="col-xs-9">
+                                <p class="form-control-static">
+                                    @Model.Id
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Place Name</label>
+                            <div class="col-xs-9">
+                                <p class="form-control-static">
+                                    @Model.Name
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Country</label>
+                            <div class="col-xs-9">
+                                <p class="form-control-static">
+                                    @Model.Country
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <button type="submit" class="btn btn-sm btn-danger">Confirm deletion</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+@using System.Collections.Generic
+@using Genealogia.Data
+
+@model Person;
+
+<section class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                @Model.Name
+                <span class="btn-group btn-group-sm">
+                    <a class="btn btn-info btn-sm" asp-controller="Person" asp-action="Update" asp-route-id="@Model.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Person" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                </span>
+            </h2>
+        </div>
+    </header>
+    <main class="row">
+        @if( @Model.DateOfBirth != null || @Model.PlaceOfBirth != null)
+        {
+            <div class="col-xs-12">
+                Born
+                @if( Model.DateOfBirth != null)
+                {
+                    @("on " +Model.DateOfBirth.ToString() + ",")
+                }            
+                @if( Model.PlaceOfBirth != null)
+                {
+                    @("in " + Model.PlaceOfBirth)
+                }
+            </div>
+        }
+        @if( @Model.DateOfDeath != null || @Model.PlaceOfDeath != null)
+        {
+            <div class="col-xs-12">
+                Died
+                @if( Model.DateOfDeath != null)
+                {
+                    @("on " +Model.DateOfDeath.ToString() + ",")
+                }            
+                @if( Model.PlaceOfDeath != null)
+                {
+                    @("in " + Model.PlaceOfDeath)
+                }
+            </div>
+        }
+        <!-- TODO : A view for add/removing reigns. -->
+    </main>
+</section>

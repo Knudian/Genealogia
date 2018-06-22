@@ -1,0 +1,35 @@
+@using System.Collections.Generic
+@using Genealogia.Data
+
+@model IEnumerable<Person>;
+
+<section class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                List of all Person saved
+                <a class="btn btn-sm btn-success" asp-controller="Person" asp-action="Create" title="Create a new one">+</a>
+            </h2>
+        </div>
+    </header>
+    <main class="row list-group">
+        @foreach(var person in Model)
+        {
+            <div class="list-group-item">
+                <span class="pull-right btn-group">
+                    <a class="btn btn-default btn-sm" asp-controller="Person" asp-action="Show" asp-route-id="@person.Id">
+                        Show
+                    </a>
+                    <a class="btn btn-primary btn-sm" asp-controller="Person" asp-action="Update" asp-route-id="@person.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm" asp-controller="Person" asp-action="Delete" asp-route-id="@person.Id">
+                        Delete
+                    </a>
+                </span>
+                @person.Name
+            </div>
+        }
+    </main>
+    <footer class="row"></footer>
+</section>

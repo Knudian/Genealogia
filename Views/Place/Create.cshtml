@@ -1,0 +1,33 @@
+@using Genealogia.Data
+@{
+    ViewData["Title"] = "Create a Place";
+}
+
+@model Place;
+
+<section class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <h4 class="page-header">Create a Place</h4>
+        </div>
+    </header>
+    <form asp-area="" asp-controller="Place" asp-action="Save" method="POST" id="createForm" class="form form-horizontal">
+        <div class="form-group row">
+            <label class="control-label col-xs-3" for="inputDefault">Place Name</label>
+            <div class="col-xs-9">
+                <input class="form-control" placeholder="Name" asp-for="Name" id="inputName" type="text"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-xs-3" for="inputDefault">Country</label>
+            <div class="col-xs-9">
+                <input class="form-control" placeholder="Country" asp-for="Country" id="inputName" type="text"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-offset-3 col-xs-9">
+                <button class="btn btn-primary btn-sm" type="submit">Validate</button>
+            </div>
+        </div>    
+    </form>
+</section>

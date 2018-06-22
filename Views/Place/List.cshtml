@@ -1,0 +1,32 @@
+@using System.Collections.Generic
+@using Genealogia.Data
+
+@model IEnumerable<Place>;
+
+<section class="container-fluid">
+    <header class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                List of all places saved
+                <a class="btn btn-sm btn-success" asp-controller="Place" asp-action="Create" title="Create a new one">+</a>
+            </h2>
+        </div>
+    </header>
+    <main class="row list-group">
+        @foreach(var place in Model)
+        {
+            <div class="list-group-item">
+                <span class="pull-right">
+                    <a class="btn btn-primary btn-sm"  asp-controller="Place" asp-action="Update" asp-route-id="@place.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger btn-sm"   asp-controller="Place" asp-action="Delete" asp-route-id="@place.Id">
+                        Delete
+                    </a>
+                </span>
+                @place.Name, @place.Country
+            </div>
+        }
+    </main>
+    <footer class="row"></footer>
+</section>
